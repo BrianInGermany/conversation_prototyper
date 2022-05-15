@@ -7,30 +7,27 @@ from recognizers_suite import Culture, ModelResult
 DEFAULT_CULTURE = Culture.English
 
 # Read from Console and recognize
-def run_recognition():
-    user_input: str = ''
-    while user_input.lower() != 'exit':
-        user_input = str(input('Enter the text to recognize: ')).strip()
-        if user_input not in ['', 'exit']:
-            # Retrieve all the ModelResult recognized from the user input
-            results = parse_all(user_input, DEFAULT_CULTURE)
-            # Flatten results
-            results = [item for sublist in results for item in sublist]
+def run_recognition(user_input):
+   
+    results = parse_all(user_input, DEFAULT_CULTURE)
+    # Flatten results
+    results = [item for sublist in results for item in sublist]
 
-            # Write results on console
-            print()
-            print(f'I found the following entities ({len(results)}):'
-                  if results else 'I found no entities.')
-            print()
+    # Write results on console
+    print()
+    print(f'I found the following entities ({len(results)}):'
+            if results else 'I found no entities.')
+    print()
 
-            for result in results:
-                print(
-                    json.dumps(
-                        result,
-                        default=lambda o: o.__dict__,
-                        indent='\t',
-                        ensure_ascii=False))
-                print()
+    for result in results:
+        print(
+            json.dumps(
+                result,
+                default=lambda o: o.__dict__,
+                indent='\t',
+                ensure_ascii=False))
+        print()
+    return results
 
 
 def parse_all(user_input: str, culture: str) -> List[List[ModelResult]]:

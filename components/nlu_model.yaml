@@ -1,0 +1,14 @@
+regex_entities:
+- datetime
+- number
+- email
+custom_entities:
+  company_id: \d{1,3}[A-Za-z]{1,8}
+  personnel_number: P\d{3}
+intents:
+  hello: 
+  - "(hi|hello|hallo)"
+  orderPizza:
+  - "(?=.*order.*).*pizza.*"
+  goodbye: 
+  - ".*(bye|thank).*"

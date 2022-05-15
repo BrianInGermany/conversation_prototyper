@@ -2,8 +2,8 @@
 ## Goal
 - Create a regex nlu intent recognizer with regex entity extraction via [`https://github.com/microsoft/Recognizers-Text`](https://github.com/microsoft/Recognizers-Text)
 ## How should it look and work?
-- Use flask interface on Heroku to allow for 
-  - choosing prebuilt entities from the [Recognizers-Text](https://github.com/microsoft/Recognizers-Text] repo
+- Use console to
+  - choose prebuilt entities from the [Recognizers-Text](https://github.com/microsoft/Recognizers-Text] repo
   - adding regex entities
   - writing regex patterns for intents that can refernce these prebuilt entities.
   - testing utterances against the selected entities and intent patterns
