@@ -15,19 +15,17 @@ def convert_to_placeholders(utterance, entity_obj):
     
     nonnested_entities = []
     for entity in entity_obj:
-        entity_is_nested = False
         for entity2 in entity_obj:
-            if (entity["start"] >= entity2["start"] and entity["end"] <= entity2["end"]):
-                # (entity is nested)
-                entity_is_nested = True
-                break
-        if entity_is_nested == False:
-            nonnested_entities.append(entity)
-    
+            if utterance[entity["start"]:entity["end"]] in utterance[entity2["start"]:entity2["end"]]:
+                entity_obj.remove(entity)
+        # breakpoint()
+        nonnested_entities = entity_obj
+    placeholder_utterance = utterance
     for nonnested in nonnested_entities:
-        utterance = utterance[:nonnested["start"]] + nonnested["typename"] + utterance[nonnested["end"]:] 
-
-    return utterance
+        placeholder_utterance = placeholder_utterance[:nonnested["start"]] + "@" + nonnested["type_name"] + placeholder_utterance[nonnested["end"] + 1:] 
+    # breakpoint()
+    print("placeholdered: " + placeholder_utterance)
+    return placeholder_utterance
 
 
 

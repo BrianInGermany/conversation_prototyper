@@ -7,8 +7,8 @@ custom_entities:
   personnel_number: P\d{3}
 intents:
   hello: 
-  - "(hi|hello|hallo)"
+  - (hi|hello|hallo)
   orderPizza:
-  - "(?=.*order.*).*pizza.*"
+  - (?=.*order.*).*pizza.*@datetimeV2\.datetime.*
   goodbye: 
-  - ".*(bye|thank).*"
+  - .*(bye|thank).*
