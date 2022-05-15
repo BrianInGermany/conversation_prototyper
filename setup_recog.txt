@@ -1,0 +1,12 @@
+
+cd python/libraries/resource-generator &&
+pip install -r ./requirements.txt &&
+python index.py ../recognizers-number/resource-definitions.json &&
+python index.py ../recognizers-number-with-unit/resource-definitions.json &&
+python index.py ../recognizers-date-time/resource-definitions.json &&
+cd ... &&
+pip install -e ./libraries/recognizers-text/ &&
+pip install -e ./libraries/recognizers-number/ &&
+pip install -e ./libraries/recognizers-number-with-unit/ &&
+pip install -e ./libraries/recognizers-date-time/ &&
+pip install -e ./libraries/recognizers-suite/
