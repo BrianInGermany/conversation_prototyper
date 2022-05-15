@@ -9,6 +9,6 @@ intents:
   hello: 
   - (hi|hello|hallo)
   orderPizza:
-  - (?=.*order.*).*pizza.*@datetimeV2\.datetime.*
+  - (?=.*order.*).*pizza.*@datetimeV2.*
   goodbye: 
   - .*(bye|thank).*

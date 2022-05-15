@@ -6,7 +6,7 @@ import re
 def query_regexes(placeholdered_utterance):
     with open("components/nlu_model.yaml", "r", encoding="utf-8") as nlu_model:
         # load intent Regexes
-        model_data = yaml.load(nlu_model)
+        model_data = yaml.load(nlu_model, Loader=yaml.FullLoader)
         intents = model_data["intents"]
         matching_intents = []
         for intent in intents:

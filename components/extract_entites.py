@@ -13,11 +13,6 @@ def run_recognition(user_input):
     # Flatten results
     results = [item for sublist in results for item in sublist]
 
-    # Write results on console
-    print()
-    print(f'I found the following entities ({len(results)}):'
-            if results else 'I found no entities.')
-    print()
 
     for result in results:
         print(

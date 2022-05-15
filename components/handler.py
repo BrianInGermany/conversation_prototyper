@@ -31,7 +31,7 @@ def handle_utterance(utterance):
   
     # placeholder the utterance using entities and indices
     placeholdered_utterance = convert_to_placeholders(utterance, entities)
-    
+
     # check intent regex for matches
     intents = query_regexes(placeholdered_utterance)
 
@@ -43,5 +43,7 @@ def handle_utterance(utterance):
     print(json.dumps(response, indent=4, ensure_ascii=False))
     return response
 
-handle_utterance("order me a pizza in four hours")
+while True:
+    user_input = input("Utterance:\n")
+    handle_utterance(user_input)
 
